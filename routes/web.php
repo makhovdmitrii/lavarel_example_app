@@ -19,16 +19,12 @@ use \App\Http\Controllers\PostController;
 Route::get('/', function () {
     return view('welcome');
 });
-/*
 Route::get('/posts', function () {
     return 'список постов';
 });
-*/
-Route::get('/posts', [PostController::class, 'show']);
 Route::prefix('post')->group(function () {
-    Route::get('/{id}', function ($id) {
-        return 'пост ' . $id;
-    })->where('id', '[0-9]+');
+    Route::get('/{id}', [PostController::class, 'show'])
+        ->where('id', '[0-9]+');
     Route::get('/page/{page?}', function ($page = 1) {
         return 'страница номер ' . $page;
     })->whereNumber('page');

@@ -44,9 +44,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post, $id)
     {
-        return 'список постов' . __METHOD__ . PHP_EOL;
+        return 'post ' . $id . ' список постов ' . __METHOD__ . PHP_EOL;
     }
 
     /**
