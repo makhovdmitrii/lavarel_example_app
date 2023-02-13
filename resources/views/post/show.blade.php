@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>my view</title>
-</head>
-<body>
-variable one: {{ $var1 }}
-variable two: {{ $var2 }}
-</body>
-</html>
+<x-layout>
+    <x-slot:title>
+        {{ $title }} - site.com
+        </x-slot>
+Post consists of : {{ $post_text }}
+</x-layout>
