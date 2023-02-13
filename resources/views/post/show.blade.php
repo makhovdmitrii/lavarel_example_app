@@ -43,4 +43,37 @@ Current timestamp: {{ time() }}
                 <li>{{ $elem }}</li>
             @endforeach
         </ul>
+    @foreach ($arr as $key => $elem)
+        {{ $key + 1 }} {{ $elem }}
+    @endforeach
+        <ul>
+            @foreach ($arr as $elem)
+                @if ($elem > 0)
+                    <li>{{ $elem }}</li>
+                @endif
+            @endforeach
+        </ul>
+        @if (count($arr) > 0)
+            <ul>
+                @foreach ($arr as $elem)
+                    <li>{{ $elem }}</li>
+                @endforeach
+            </ul>
+    @endif
+    @foreach ($arr1 as $subArr)
+        @foreach ($subArr as $elem)
+            {{ $elem }}
+        @endforeach
+    @endforeach
+        <ul>
+            @foreach ($arr1 as $subArr)
+                <li>
+                    <ul>
+                        @foreach ($subArr as $elem)
+                            <li>{{ $elem }}</li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endforeach
+        </ul>
 </x-layout>
