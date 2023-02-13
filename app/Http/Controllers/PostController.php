@@ -46,7 +46,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return 'список постов' . __METHOD__ . PHP_EOL;
     }
 
     /**
