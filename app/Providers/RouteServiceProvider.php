@@ -36,6 +36,8 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+        // https://code.mu/ru/php/framework/laravel/book/prime/routing/global-parameters-constraints/
+        Route::pattern('id', '[0-9]+');
     }
 
     /**
