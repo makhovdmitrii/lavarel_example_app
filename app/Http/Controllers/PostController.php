@@ -54,7 +54,7 @@ class PostController extends Controller
             5 => 'текст 5',
         ];
 
-        return view('post.show', ['post_text' => $posts[$id], 'title' => 'page title',]);
+        return view('post.show', ['post_text' => $posts[$id], 'title' => 'page title', 'arr' => [1, 2], 'isAuth' => true]);
     }
 
     /**
