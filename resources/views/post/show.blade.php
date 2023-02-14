@@ -120,4 +120,14 @@ Current timestamp: {{ time() }}
 {{ $loop->count }}
 {{ $elem }}
 @endforeach
+    @foreach ($arr as $elem)
+        {{ $elem }}
+        @if ($elem == 3)
+            @break
+        @endif
+    @endforeach
+    @foreach ($arr as $elem)
+        {{ $elem }}
+        @break($elem == 3)
+    @endforeach
 </x-layout>
