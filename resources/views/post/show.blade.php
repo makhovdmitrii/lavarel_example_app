@@ -140,4 +140,10 @@ Current timestamp: {{ time() }}
         @continue($elem == 3)
         {{ $elem }}
     @endforeach
+        @for ($i = 0; $i < 10; $i++)
+            значение счетчика: {{ $i }}
+        @endfor
+    @php
+        echo 123;
+    @endphp
 </x-layout>
