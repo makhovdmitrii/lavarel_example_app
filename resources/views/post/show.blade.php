@@ -130,4 +130,14 @@ Current timestamp: {{ time() }}
         {{ $elem }}
         @break($elem == 3)
     @endforeach
+    @foreach ($arr as $elem)
+        @if ($elem == 3)
+            @continue
+        @endif
+        {{ $elem }}
+    @endforeach
+    @foreach ($arr as $elem)
+        @continue($elem == 3)
+        {{ $elem }}
+    @endforeach
 </x-layout>
