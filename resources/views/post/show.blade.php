@@ -76,4 +76,48 @@ Current timestamp: {{ time() }}
                 </li>
             @endforeach
         </ul>
+        @forelse ($arr as $elem)
+            <p>{{ $elem }}</p>
+        @empty
+            <p>в массиве нет элементов</p>
+       @endforelse
+        @foreach ($arr as $elem)
+            @if ($loop->first)
+                первая итерация
+            @endif
+            @if ($loop->last)
+                последняя итерация
+            @endif
+            {{ $elem }}
+        @endforeach
+        @foreach ($arr as $elem)
+            @if ($loop->odd)
+                нечетная итерация
+            @endif
+            @if ($loop->even)
+                четная итерация
+            @endif
+        {{ $elem }}
+        @endforeach
+        <br>
+{{-- https://code.mu/ru/php/framework/laravel/book/prime/blade/variable-loop/ --}}
+@foreach ($arr as $elem)
+{{ $loop->index }}
+{{ $elem }}
+@endforeach
+<br>
+@foreach ($arr as $elem)
+{{ $loop->iteration }}
+{{ $elem }}
+@endforeach
+<br>
+@foreach ($arr as $elem)
+{{ $loop->remaining }}
+{{ $elem }}
+@endforeach
+<br>
+@foreach ($arr as $elem)
+{{ $loop->count }}
+{{ $elem }}
+@endforeach
 </x-layout>
