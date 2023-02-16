@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('title')->default('default title');
             $table->text('desc')->nullable()->comment('description of post');
             $table->string('name', 100)->change();
+            $table->string('name')->first()->change(); // no reverse in rollback
+            $table->string('vote')->after('id')->change(); // no reverse in rollback
             $table->renameColumn('text', 'message');
         });
     }
