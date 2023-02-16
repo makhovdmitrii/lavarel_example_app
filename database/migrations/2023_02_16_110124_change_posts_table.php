@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('vote')->after('id')->change(); // no reverse in rollback
             $table->renameColumn('text', 'message');
         });
+        Schema::rename('posts', 'articles');
     }
 
     /**
@@ -30,6 +31,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::rename('articles', 'posts');
         Schema::table('posts', function (Blueprint $table) {
             $table->dropColumn(['title', 'desc']);
             $table->string('name', 255)->change();
