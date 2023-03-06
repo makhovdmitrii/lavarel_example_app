@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name')->first()->change(); // no reverse in rollback
             $table->string('vote')->after('id')->change(); // no reverse in rollback
             $table->renameColumn('text', 'message');
+            $table->unique('name', 'unique_name');
         });
         Schema::rename('posts', 'articles');
     }
@@ -36,6 +37,7 @@ return new class extends Migration
             $table->dropColumn(['title', 'desc']);
             $table->string('name', 255)->change();
             $table->renameColumn('message', 'text');
+            $table->dropUnique('unique_name');
         });
     }
 };
