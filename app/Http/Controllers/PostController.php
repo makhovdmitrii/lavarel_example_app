@@ -47,12 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post, $id)
     {
-        $posts = DB::table('posts')->get();
-
-        foreach ($posts as $post) {
-            dump($post->title);
-            dump($post->message);
-        }
+        $postsFromDB = DB::table('posts')->get();
 
         $posts = [
             1 => 'текст 1',
@@ -63,7 +58,8 @@ class PostController extends Controller
         ];
 
         return view('post.show', ['post_text' => $posts[$id], 'title' => 'page title', 'arr' => [1, 2],
-            'isAuth' => false, 'num' => 2, 'arr1' => [[1, 2, 3], [4, 5, 6], [7, 8, 9]]]);
+            'isAuth' => false, 'num' => 2, 'arr1' => [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+            'posts' => $postsFromDB]);
     }
 
     /**

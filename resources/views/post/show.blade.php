@@ -2,6 +2,14 @@
     <x-slot:title>
         {{ $title }} - site.com
         </x-slot>
+        @foreach ($posts as $post)
+            <div>
+                <h2>{{ $post->title }}</h2>
+                <div>
+                    {{ $post->message }}
+                </div>
+            </div>
+        @endforeach
 Post consists of : {{ $post_text }}
 Current timestamp: {{ time() }}
 {{ count($arr) }}
