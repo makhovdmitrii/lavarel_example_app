@@ -50,6 +50,44 @@ class PostController extends Controller
         //$postsFromDB = DB::table('posts')->get();
         $postsFromDB = DB::table('posts')->select('title', 'message as text')->get();
 
+        /*
+        $posts = DB::table('posts')->where('likes', 100)->get();
+        $posts = DB::table('posts')->where('likes', '>', 100)->get();
+        $posts = DB::table('posts')->where('likes', '!=', 100)->get();
+        $posts = DB::table('posts')
+		->where('likes', '>', 10)
+		->where('likes', '<', 20)
+		->get();
+        $posts = DB::table('posts')
+		->where('id', '=', 10)
+		->orWhere('likes', '>', 10)
+		->get();
+        $posts = DB::table('posts')
+		->where('id', '=', 3)
+		->orWhere(function($query) {
+			$query
+				->where('likes', '>', 10)
+				->where('likes', '<', 50);
+		})
+	->get();
+        $post = DB::table('posts')->where('id', 1)->first();
+        */
+        $title = DB::table('posts')->where('id', '1')->value('title');
+        echo $title;
+        $titles = DB::table('posts')->pluck('title');
+        dump($titles);
+        $titles = DB::table('posts')->pluck('title');
+
+        foreach ($titles as $title) {
+            echo $title;
+        }
+
+        $titles = DB::table('posts')
+            ->where('id', '>', '3')
+            ->pluck('title');
+
+        dump($titles);
+
         DB::enableQueryLog();
         DB::table('posts')->where('id', '>', 5)->get();
         dump(DB::getQueryLog());
