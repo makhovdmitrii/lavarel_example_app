@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -46,6 +47,13 @@ class PostController extends Controller
      */
     public function show(Post $post, $id)
     {
+        $posts = DB::table('posts')->get();
+
+        foreach ($posts as $post) {
+            dump($post->title);
+            dump($post->message);
+        }
+
         $posts = [
             1 => 'текст 1',
             2 => 'текст 2',
