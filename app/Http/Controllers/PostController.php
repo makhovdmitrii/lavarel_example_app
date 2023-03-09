@@ -48,7 +48,7 @@ class PostController extends Controller
     public function show(Post $post, $id)
     {
         //$postsFromDB = DB::table('posts')->get();
-        $postsFromDB = DB::table('posts')->select('title', 'message')->get();
+        $postsFromDB = DB::table('posts')->select('title', 'message as text')->get();
 
         DB::enableQueryLog();
         DB::table('posts')->where('id', '>', 5)->get();
