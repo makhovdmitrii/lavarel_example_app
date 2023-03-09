@@ -49,6 +49,17 @@ class PostController extends Controller
     {
         $postsFromDB = DB::table('posts')->get();
 
+        DB::enableQueryLog();
+        DB::table('posts')->where('id', '>', 5)->get();
+        dump(DB::getQueryLog());
+
+        $query = DB::table('posts')->where('id', '>', 5)->toSql();
+        dump($query);
+
+        DB::table('posts')->where('id', '>', 5)->dump();
+
+        DB::table('posts')->where('id', '>', 5)->dd();
+
         $posts = [
             1 => 'текст 1',
             2 => 'текст 2',
