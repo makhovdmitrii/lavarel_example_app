@@ -50,7 +50,7 @@ class PostController extends Controller
         //$postsFromDB = DB::table('posts')->get();
         $postsFromDB = DB::table('posts')->select('title', 'message as text')->get();
 
-        /*
+        /* Likes are not supported
         $posts = DB::table('posts')->where('likes', 100)->get();
         $posts = DB::table('posts')->where('likes', '>', 100)->get();
         $posts = DB::table('posts')->where('likes', '!=', 100)->get();
@@ -72,6 +72,7 @@ class PostController extends Controller
 	->get();
         $post = DB::table('posts')->where('id', 1)->first();
         */
+        /* Some worked queries.
         $title = DB::table('posts')->where('id', '1')->value('title');
         echo $title;
         $titles = DB::table('posts')->pluck('title');
@@ -87,7 +88,8 @@ class PostController extends Controller
             ->pluck('title');
 
         dump($titles);
-
+        */
+        /* Query logging
         DB::enableQueryLog();
         DB::table('posts')->where('id', '>', 5)->get();
         dump(DB::getQueryLog());
@@ -95,8 +97,9 @@ class PostController extends Controller
         $query = DB::table('posts')->where('id', '>', 5)->toSql();
         dump($query);
 
-        DB::table('posts')->where('id', '>', 5)->dump();
 
+        DB::table('posts')->where('id', '>', 5)->dump();
+        */
         //DB::table('posts')->where('id', '>', 5)->dd();
 
         $posts = [
