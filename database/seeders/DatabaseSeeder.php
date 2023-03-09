@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        DB::table('articles')->insert([
+        DB::table('posts')->insert([
             [
                 'name' => 'title 1',
                 'title'  => 'post-1',
